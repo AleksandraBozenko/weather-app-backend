@@ -1,0 +1,24 @@
+# This is a generated file. Not intended for manual editing.
+version: "3"
+services:
+  weatherapp:
+    build:
+      context: "/Users/kkawczak/kacper/ola/weatherApp"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/weatherApp.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      NUGET_PACKAGES: "/Users/kkawczak/.nuget/packages"
+      NUGET_FALLBACK_PACKAGES: "/Users/kkawczak/.nuget/packages"
+    image: "weatherapp:dev"
+    ports: []
+    volumes:
+    - "/Users/kkawczak/.nuget/packages:/root/.nuget/fallbackpackages"
+    - "/Users/kkawczak/kacper/ola/weatherApp:/app:rw"
+    - "/Users/kkawczak/kacper/ola/weatherApp:/src:rw"
+    working_dir: "/app"
